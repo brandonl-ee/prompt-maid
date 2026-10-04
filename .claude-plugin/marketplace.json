@@ -1,0 +1,15 @@
+{
+  "name": "prompt-maid",
+  "description": "Prompt Maid: tidies a rough prompt into a clear one before it runs.",
+  "owner": {
+    "name": "brandonl-ee",
+    "url": "https://github.com/brandonl-ee"
+  },
+  "plugins": [
+    {
+      "name": "prompt-maid",
+      "source": "./",
+      "description": "Tidies your prompts. Saves your tokens. Start a message with maid: to turn a rough request into a clear one before it runs."
+    }
+  ]
+}

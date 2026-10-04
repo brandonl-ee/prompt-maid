@@ -1,0 +1,13 @@
+{
+  "name": "prompt-maid",
+  "displayName": "Prompt Maid",
+  "description": "Tidies your prompts. Saves your tokens. Start a message with maid: to turn a rough request into a clear one before it runs.",
+  "author": {
+    "name": "brandonl-ee",
+    "url": "https://github.com/brandonl-ee"
+  },
+  "homepage": "https://github.com/brandonl-ee/prompt-maid",
+  "repository": "https://github.com/brandonl-ee/prompt-maid",
+  "license": "MIT",
+  "keywords": ["prompt", "prompt-engineering", "tokens", "skill"]
+}

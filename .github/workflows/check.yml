@@ -1,0 +1,35 @@
+name: Check install files
+
+# Fails if the things the README's install steps rely on have drifted:
+# the two plugin manifests, or the skill's name and folder.
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Manifests are valid JSON and name the right plugin
+        run: |
+          python3 - <<'EOF'
+          import json, re, pathlib
+          plugin = json.load(open(".claude-plugin/plugin.json"))
+          market = json.load(open(".claude-plugin/marketplace.json"))
+          assert plugin["name"] == "prompt-maid", plugin["name"]
+          assert [p["name"] for p in market["plugins"]] == ["prompt-maid"], market["plugins"]
+          skill = pathlib.Path("skills/prompt-maid/SKILL.md").read_text(encoding="utf-8")
+          front = re.match(r"^---\n(.*?)\n---\n", skill, re.S)
+          assert front, "SKILL.md must start with YAML frontmatter"
+          assert re.search(r"^name: prompt-maid$", front.group(1), re.M), "skill name must match its folder"
+          description = re.search(r"^description:\s*(\S.*)$", front.group(1), re.M)
+          assert description, "SKILL.md needs a one-line description"
+          assert len(description.group(1).strip("\"'")) <= 1024, "description is over 1,024 characters"
+          print("Manifests and SKILL.md frontmatter are consistent")
+          EOF
