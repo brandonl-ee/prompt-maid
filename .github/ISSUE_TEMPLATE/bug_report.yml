@@ -1,0 +1,59 @@
+name: A prompt it handled badly
+description: Prompt Maid changed the meaning, missed something, or did the wrong thing.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please remove anything private from the prompt before pasting it. For a security problem, do not use this form; see the [security policy](https://github.com/brandonl-ee/prompt-maid/security/policy).
+  - type: textarea
+    id: prompt
+    attributes:
+      label: The message you sent
+      description: Exactly what you typed, starting with `maid:` if you used it.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What Prompt Maid returned
+      description: Paste the reply, or the part that went wrong.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where did you use it?
+      options:
+        - Claude (claude.ai, desktop or phone app)
+        - Claude Code
+        - Another tool that reads skill folders (Codex, Cursor, Gemini CLI, Copilot, ...)
+        - The plain-text version (fallback.md) in ChatGPT, Gemini or another AI
+        - Somewhere else
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: AI model or app version
+      description: If you know it.
+  - type: input
+    id: settings
+    attributes:
+      label: Settings in use
+      description: "Only if you changed them, for example `maid: on`, `maid: auto`, `maid: full`. Or a filled-in profile."
+  - type: checkboxes
+    id: private
+    attributes:
+      label: Before you submit
+      options:
+        - label: I removed private information from the text above.
+          required: true

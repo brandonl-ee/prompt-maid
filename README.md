@@ -1,5 +1,8 @@
 # Prompt Maid
 
+[![Check](https://github.com/brandonl-ee/prompt-maid/actions/workflows/check.yml/badge.svg)](https://github.com/brandonl-ee/prompt-maid/actions/workflows/check.yml)
+[![License: MIT](https://img.shields.io/github/license/brandonl-ee/prompt-maid)](LICENSE)
+
 **Tidies your prompts. Saves your tokens.**
 
 Start a message with `maid:` and Prompt Maid turns your rough prompt into a clear one before it runs, so you get the answer you meant on the first try, at the length you need. It works for everyday things (messages, trip and meal plans, study questions) and for work (emails, reports, code, data), in whatever language you write in.
@@ -197,10 +200,12 @@ Your profile is sent to the AI along with your prompts, so leave out anything yo
 | `fallback.md` | The same rules as one plain-text block, for AIs without skill support. |
 | `tests.md` | Twelve rough prompts and what the skill made of them, with word counts and a meaning check for each. |
 | `FIX-REPORT.md` | The pre-publication review: what was found, what was changed, how it was re-tested. |
+| `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `CHANGELOG.md` | How to contribute, the community rules, how to report a security problem privately, and release notes. |
+| `.github/` | The issue forms, the pull request template and the CI check. |
 
-Only `skills/prompt-maid` is the skill itself. The manifests are what make the one-line installs work, and the rest is for reading.
+Only `skills/prompt-maid` is the skill itself. The manifests are what make the one-line installs work, and the rest is for reading and contributing.
 
-Found a prompt it handled badly, or a platform whose install steps have changed? Open an issue with the prompt (or the page) and what you expected.
+Found a prompt it handled badly, or a platform whose install steps have changed? [Open an issue](https://github.com/brandonl-ee/prompt-maid/issues/new/choose) with the prompt (or the page) and what you expected. Changes are welcome too: see [CONTRIBUTING.md](CONTRIBUTING.md). For a security problem, use the private route in [SECURITY.md](SECURITY.md) instead of a public issue.
 
 ## License
 

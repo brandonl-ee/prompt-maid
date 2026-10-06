@@ -1,0 +1,52 @@
+name: An install step that doesn't work
+description: A README install step failed, or a platform's menu or command has changed.
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Platforms change their menus and commands, so this kind of report is very useful. If `maid: help` just gives an ordinary answer, check the "Check it works" section of the README first.
+  - type: dropdown
+    id: where
+    attributes:
+      label: Which install route?
+      options:
+        - Claude (Customize > Plugins, or uploading the skill as a zip)
+        - Claude Code (claude plugin ...)
+        - npx skills add
+        - gh skill install
+        - Copying the folder by hand
+        - Pasting the plain-text block into custom instructions
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: What you did
+      description: The command you ran or the menus you clicked, in order.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened
+      description: The error text, or what you saw instead of what the README says.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Tool and version
+      description: For example `claude --version`, `node --version`, or the app and plan you use.
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+  - type: checkboxes
+    id: fresh
+    attributes:
+      label: Already tried
+      options:
+        - label: I started a new conversation or session after installing.

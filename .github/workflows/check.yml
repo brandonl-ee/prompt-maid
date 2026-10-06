@@ -1,7 +1,8 @@
 name: Check install files
 
 # Fails if the things the README's install steps rely on have drifted:
-# the two plugin manifests, or the skill's name and folder.
+# the two plugin manifests, or the skill's name and folder. Also runs the
+# Agent Skills reference validator (github.com/anthropics/agentskills) on the skill.
 
 on:
   push:
@@ -33,3 +34,9 @@ jobs:
           assert len(description.group(1).strip("\"'")) <= 1024, "description is over 1,024 characters"
           print("Manifests and SKILL.md frontmatter are consistent")
           EOF
+
+      - name: Skill follows the Agent Skills specification
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install --quiet skills-ref==0.1.1
+          .venv/bin/agentskills validate skills/prompt-maid

@@ -1,0 +1,25 @@
+name: An idea or request
+description: Suggest a change to how Prompt Maid behaves, or a new platform to document.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prompt Maid keeps its instructions as short as possible, because every line is paid for each time the skill runs. A good request says what goes wrong today and shows a prompt where it matters.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What would you like it to do, or what goes wrong today?
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: An example
+      description: A rough prompt, and the tidied version you would have wanted. Remove anything private.
+      render: text
+  - type: textarea
+    id: worth
+    attributes:
+      label: Why is it worth extra lines in the skill?
+      description: Skip this for a documentation or platform request.
