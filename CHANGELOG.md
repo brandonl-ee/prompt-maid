@@ -6,6 +6,26 @@ Plugin installs follow the default branch rather than these numbers, so a releas
 
 ## [Unreleased]
 
+### Added
+
+- `enhance` depth: `maid: enhance` turns the next prompt into a detailed, step-by-step prompt for an AI agent, with every unstated detail listed under Assumptions. It is used only when asked for.
+- One-message depth forms: `maid: light: [prompt]`, `maid: full: [prompt]`, `maid: enhance: [prompt]`.
+- `maid:` with nothing after it shows help.
+- `evals/`: fourteen automated checks for `claude plugin eval`.
+
+### Changed
+
+- Repository tidied: the contributing guide, code of conduct and security policy moved to `.github/`, `tests.md` moved to `docs/`, and the pre-publication `FIX-REPORT.md` was removed.
+- The tidied prompt is wrapped at about 80 characters; code, links and quoted text are not broken.
+- The full-depth example in the skill no longer shows an invented word limit, which contradicted the rule against inventing limits.
+- The skill's description also covers always mode switched on earlier in the conversation.
+- Defined behaviour: a missing or unreadable profile is skipped silently; a clarifying question is one question, not a list; a prompt that needs no changes still waits in approve mode; an unrelated message drops a waiting prompt.
+- `fallback.md` carries the same changes (1,992 characters; 1,498 with the lines the README lists removed).
+
+### Known limits
+
+- Not reliable on the smallest model tier: 6 to 8 of the 14 checks passed per run on Claude Haiku 4.5, against 14 of 14 on Claude Opus 5.5.
+
 ## [1.0.0] - 2026-10-06
 
 First public release.

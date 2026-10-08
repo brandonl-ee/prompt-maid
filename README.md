@@ -17,13 +17,14 @@ Start a message with `maid:` and Prompt Maid turns your rough prompt into a clea
 Write a short, friendly note to my neighbour, to put through their door. Their dog has been barking all night, every night, for about 2 weeks, and I haven't been sleeping properly. I don't want to start a fight; we usually get on ok.
 ```
 
-Same facts, same request, now a clear instruction. This is test 4 in [tests.md](tests.md), copied as the skill returned it. Across all 12 tests the tidied prompts came out a little longer than the originals (516 words against 468): Prompt Maid cuts the filler, then spends words on saying what shape of answer you need. Whether that makes answers shorter or saves retries hasn't been measured.
+Same facts, same request, now a clear instruction. This is test 4 in [tests.md](docs/tests.md), copied as the skill returned it. Across all 12 tests the tidied prompts came out a little longer than the originals (516 words against 468): Prompt Maid cuts the filler, then spends words on saying what shape of answer you need. Whether that makes answers shorter or saves retries hasn't been measured.
 
 ## What it does
 
 - Cuts what costs tokens without helping: greetings, filler, repetition.
 - Asks for the format and length the task needs, so the answer is no longer than necessary.
 - Gives bigger tasks a clear structure: context, task, your constraints, and what the result should look like.
+- On request, writes a detailed, step-by-step prompt for an AI agent (`maid: enhance`), with anything it had to assume listed where you can see it.
 - Asks one short question when something essential is missing, instead of guessing.
 - Says when a lighter or a stronger model would clearly suit the task better. It names a tier, never a specific model, and never switches models for you.
 - Works in your language.
@@ -31,7 +32,7 @@ Same facts, same request, now a clear instruction. This is test 4 in [tests.md](
 
 ## What it never does
 
-It never changes the meaning. Your names, numbers, dates, quotes and wording stay as you wrote them. It adds no requirements of its own and never invents a goal, audience, tone or constraint. When it has to assume something, it tells you.
+It never changes the meaning. Your names, numbers, dates, quotes and wording stay as you wrote them. It adds no requirements of its own and never invents a goal, audience, tone or constraint. When it has to assume something, it tells you. The `enhance` depth is the one place it adds detail, and every detail you did not give is listed under Assumptions in the prompt.
 
 It also stays plain: no persona, no role-play, no emojis. The name is playful; the replies are fit for work.
 
@@ -82,7 +83,7 @@ Already inside a session? One command does both, on Claude Code 2.1.275 or later
 /plugin install prompt-maid --marketplace brandonl-ee/prompt-maid
 ```
 
-If you already added Prompt Maid in the Claude app, skip this: it syncs to Claude Code by itself. While idle the plugin adds about 130 tokens to a session, and about 2,300 when `maid:` is used (figures from `claude plugin details`). Guide: [Install plugins](https://code.claude.com/docs/en/plugins/install).
+If you already added Prompt Maid in the Claude app, skip this: it syncs to Claude Code by itself. While idle the plugin adds roughly 150 tokens to a session, and roughly 2,700 when `maid:` is used (estimates; `claude plugin details prompt-maid` shows the figures for your install). Guide: [Install plugins](https://code.claude.com/docs/en/plugins/install).
 
 For a [profile](#profile), copy the `skills/prompt-maid` folder into `~/.claude/skills/` instead, so `profile.md` stays where you can edit it.
 
@@ -129,7 +130,7 @@ Custom instructions are sent with every message, so this version adds a little t
 <details>
 <summary>On ChatGPT Free or Go? The block needs trimming to fit</summary>
 
-The block is 1,713 characters. That fits ChatGPT's 5,000-character limit on paid plans and a Gemini Gem. ChatGPT Free and Go allow 1,500, so on those plans leave out the `Light (quick tasks)...` line, the `Settings last...` line, the `Plain, polite...` line and the three `MY PROFILE` lines (1,465 characters). Prompt Maid then always picks the depth itself and has no profile.
+The block is 1,992 characters. That fits ChatGPT's 5,000-character limit on paid plans and a Gemini Gem. ChatGPT Free and Go allow 1,500, so on those plans leave out the `Settings last...` line, the `Light (quick tasks)...` line, the `Enhance (only when asked...` line, the `Plain, polite...` line and the three `MY PROFILE` lines (1,498 characters). Prompt Maid then always picks the depth itself, and has no enhance depth and no profile.
 
 </details>
 
@@ -164,13 +165,64 @@ If you get an ordinary answer instead, the skill isn't loaded yet:
 | `maid: auto` | Runs the tidied prompt straight away and tells you in one line what changed and what was assumed. |
 | `maid: light` | Light tidy for the next prompt only: trim and clarify. |
 | `maid: full` | Full tidy for the next prompt only: context, constraints and the finished result. |
-| `maid: help` | Lists the commands and your current settings. |
+| `maid: enhance` | For the next prompt only: a detailed, step-by-step prompt written for an AI agent. |
+| `maid: light: [your prompt]`<br>`maid: full: [your prompt]`<br>`maid: enhance: [your prompt]` | The same three depths in one message. |
+| `maid: help` | Lists the commands and your current settings. `maid:` on its own does the same. |
 
 - A setting command must be the whole message. `maid: on Friday I need a packing list` is a prompt to tidy, not a setting. Capitals don't matter: `Maid:` works too.
-- Without `maid: light` or `maid: full`, Prompt Maid picks the depth itself: light for quick questions and small edits, full for multi-step or high-stakes work.
-- In approve mode, reply `go` (or any clear yes) to run the tidied prompt, or say what to change. The prompt comes in a copyable block, so you can also take it to another AI; if it shows `[pasted text]`, paste your own text in there, since long pasted material isn't repeated.
+- Without a depth, Prompt Maid picks light or full itself: light for quick questions and small edits, full for multi-step or high-stakes work. It never picks enhance by itself.
+- A depth word counts only when it is the whole message or is followed by a colon. `maid: enhance my CV summary` is a prompt to tidy; `maid: enhance: my CV summary` asks for the enhance depth.
+- The tidied prompt's lines are broken at about 80 characters, so it reads without sideways scrolling. Code, links and quoted text are left unbroken.
+- In approve mode, reply `go` (or any clear yes) to run the tidied prompt, or say what to change. If you send something unrelated instead, the waiting prompt is dropped. The prompt comes in a copyable block, so you can also take it to another AI; if it shows `[pasted text]`, paste your own text in there, since long pasted material isn't repeated.
 - Settings last until the end of the conversation. A new conversation starts with the defaults. In a very long conversation the AI can lose track of a setting; send it again if that happens.
 - In auto mode, a tidied prompt that would change files, send something or otherwise act outside the chat is still shown first, so you see the instruction before it runs.
+
+### Enhance
+
+`maid: enhance` is for prompts you will hand to an AI agent, where a detailed brief beats a short one.
+
+**Before** (19 words)
+
+> need a script that cleans up our customer csv, theres dupes and the emails are a mess, python pls
+
+**After** `maid: enhance:` (186 words)
+
+```text
+Goal: A Python script that cleans up our customer CSV by removing duplicate
+rows and tidying the email addresses.
+
+Context: The customer CSV has duplicate entries, and the email addresses are
+a mess.
+
+Task:
+1. Read the customer CSV.
+2. Clean the email column.
+3. Remove duplicate customers.
+4. Write the cleaned data to a new CSV.
+
+Constraints:
+- Python.
+
+Assumptions:
+- The input and output file paths are passed as command-line arguments, and
+  the original file is left unchanged.
+- The CSV has a header row with a column whose name contains "email".
+- Cleaning an email means trimming whitespace, lowercasing it, and flagging
+  values that aren't valid addresses rather than deleting them.
+- Two rows are duplicates if their cleaned emails match; the first one is
+  kept.
+- Standard library only, no pandas.
+
+Output: The script in one code block, then a short note on how to run it.
+
+Done when: Running the script on the CSV produces a new file with one row per
+customer and consistently formatted emails, and it prints how many duplicates
+were removed and how many emails were flagged.
+```
+
+This is test 13 in [tests.md](docs/tests.md), copied as the skill returned it. It is much longer on purpose, so use it when the extra detail will save the agent from guessing. Read the Assumptions before you run it: they are the skill's guesses, not your requirements.
+
+Prompt Maid was checked on a large model and on the smallest tier. It is not reliable on the smallest tier: see the end of [tests.md](docs/tests.md).
 
 ## Profile
 
@@ -198,14 +250,14 @@ Your profile is sent to the AI along with your prompts, so leave out anything yo
 | `skills/prompt-maid/profile.md` | The blank, optional profile template. |
 | `.claude-plugin/` | Two small manifests that let Claude and Claude Code install the skill as a plugin straight from this repository. |
 | `fallback.md` | The same rules as one plain-text block, for AIs without skill support. |
-| `tests.md` | Twelve rough prompts and what the skill made of them, with word counts and a meaning check for each. |
-| `FIX-REPORT.md` | The pre-publication review: what was found, what was changed, how it was re-tested. |
-| `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `CHANGELOG.md` | How to contribute, the community rules, how to report a security problem privately, and release notes. |
-| `.github/` | The issue forms, the pull request template and the CI check. |
+| `docs/tests.md` | Twelve rough prompts and what the skill made of them, with word counts and a meaning check for each, plus three enhance tests. |
+| `evals/` | Fourteen automated checks for `claude plugin eval`. Never loaded when the skill runs. |
+| `CHANGELOG.md` | Release notes. |
+| `.github/` | How to contribute, the community rules, the security policy, the issue forms, the pull request template and the CI check. |
 
 Only `skills/prompt-maid` is the skill itself. The manifests are what make the one-line installs work, and the rest is for reading and contributing.
 
-Found a prompt it handled badly, or a platform whose install steps have changed? [Open an issue](https://github.com/brandonl-ee/prompt-maid/issues/new/choose) with the prompt (or the page) and what you expected. Changes are welcome too: see [CONTRIBUTING.md](CONTRIBUTING.md). For a security problem, use the private route in [SECURITY.md](SECURITY.md) instead of a public issue.
+Found a prompt it handled badly, or a platform whose install steps have changed? [Open an issue](https://github.com/brandonl-ee/prompt-maid/issues/new/choose) with the prompt (or the page) and what you expected. Changes are welcome too: see [CONTRIBUTING.md](.github/CONTRIBUTING.md). For a security problem, use the private route in [SECURITY.md](.github/SECURITY.md) instead of a public issue.
 
 ## License
 

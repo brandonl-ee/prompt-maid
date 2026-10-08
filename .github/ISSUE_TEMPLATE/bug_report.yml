@@ -49,7 +49,7 @@ body:
     id: settings
     attributes:
       label: Settings in use
-      description: "Only if you changed them, for example `maid: on`, `maid: auto`, `maid: full`. Or a filled-in profile."
+      description: "Only if you changed them, for example `maid: on`, `maid: auto`, `maid: enhance`. Or a filled-in profile."
   - type: checkboxes
     id: private
     attributes:
