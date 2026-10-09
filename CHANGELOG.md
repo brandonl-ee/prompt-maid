@@ -6,6 +6,8 @@ Plugin installs follow the default branch rather than these numbers, so a releas
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-08
+
 ### Added
 
 - `enhance` depth: `maid: enhance` turns the next prompt into a detailed, step-by-step prompt for an AI agent, with every unstated detail listed under Assumptions. It is used only when asked for.
@@ -15,6 +17,7 @@ Plugin installs follow the default branch rather than these numbers, so a releas
 
 ### Changed
 
+- Discoverability: search terms in the skill description and plugin keywords, a skills.sh badge, a one-line install command and a Versions section in the README.
 - Repository tidied: the contributing guide, code of conduct and security policy moved to `.github/`, `tests.md` moved to `docs/`, and the pre-publication `FIX-REPORT.md` was removed.
 - The tidied prompt is wrapped at about 80 characters; code, links and quoted text are not broken.
 - The full-depth example in the skill no longer shows an invented word limit, which contradicted the rule against inventing limits.
@@ -40,5 +43,6 @@ First public release.
 - A CI check that the manifests and the skill's name stay consistent.
 - Community files: contributing guide, code of conduct, security policy, issue forms, pull request template and this changelog.
 
-[Unreleased]: https://github.com/brandonl-ee/prompt-maid/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/brandonl-ee/prompt-maid/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/brandonl-ee/prompt-maid/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/brandonl-ee/prompt-maid/releases/tag/v1.0.0

@@ -9,7 +9,14 @@
     {
       "name": "prompt-maid",
       "source": "./",
-      "description": "Tidies your prompts. Saves your tokens. Start a message with maid: to turn a rough request into a clear one before it runs."
+      "description": "Tidies your prompts. Saves your tokens. Start a message with maid: to turn a rough request into a clear one before it runs, or maid: enhance: for a detailed, agent-ready prompt.",
+      "category": "productivity",
+      "tags": [
+        "prompt-engineering",
+        "prompt-optimizer",
+        "prompt-enhancer",
+        "tokens"
+      ]
     }
   ]
 }

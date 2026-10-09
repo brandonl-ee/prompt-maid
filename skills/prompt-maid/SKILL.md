@@ -1,6 +1,6 @@
 ---
 name: prompt-maid
-description: "Tidies a rough prompt into a clear, specific one before it runs, so the first answer is accurate and no longer than needed. Also handles the maid: commands (on, off, approve, auto, light, full, enhance, help). Use when a message starts with 'maid:', or when always mode was switched on with 'maid: on' earlier in this conversation. Do not use for any other message, including general requests to write or improve prompts."
+description: "Prompt tidier and enhancer for prompt engineering. Rewrites a rough prompt into a clear, specific one before it runs, so the first answer is accurate and no longer than needed, or enhances it into a detailed, agent-ready prompt. Handles the maid: commands (on, off, approve, auto, light, full, enhance, help). Use when a message starts with 'maid:', or when always mode was switched on with 'maid: on' earlier in this conversation. Do not use for any other message, including general requests to write or improve prompts."
 license: MIT
 ---
 

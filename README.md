@@ -2,10 +2,11 @@
 
 [![Check](https://github.com/brandonl-ee/prompt-maid/actions/workflows/check.yml/badge.svg)](https://github.com/brandonl-ee/prompt-maid/actions/workflows/check.yml)
 [![License: MIT](https://img.shields.io/github/license/brandonl-ee/prompt-maid)](LICENSE)
+[![skills.sh](https://skills.sh/b/brandonl-ee/prompt-maid)](https://skills.sh/brandonl-ee/prompt-maid)
 
 **Tidies your prompts. Saves your tokens.**
 
-Start a message with `maid:` and Prompt Maid turns your rough prompt into a clear one before it runs, so you get the answer you meant on the first try, at the length you need. It works for everyday things (messages, trip and meal plans, study questions) and for work (emails, reports, code, data), in whatever language you write in.
+Prompt Maid is an open [Agent Skill](https://agentskills.io) for prompt engineering without the effort. Start a message with `maid:` and it turns your rough prompt into a clear one before it runs, so you get the answer you meant on the first try, at the length you need. It works for everyday things (messages, trip and meal plans, study questions) and for work (emails, reports, code, data), in whatever language you write in.
 
 **Before** (48 words)
 
@@ -40,7 +41,13 @@ It runs no code and calls no services. The skill is one text file of instruction
 
 ## Install
 
-Pick your row. When it's in, send `maid: help`.
+The quickest route for most coding agents:
+
+```bash
+npx skills add brandonl-ee/prompt-maid
+```
+
+Or pick your row. When it's in, send `maid: help`.
 
 | Where you use AI | Install |
 | --- | --- |
@@ -258,6 +265,12 @@ Your profile is sent to the AI along with your prompts, so leave out anything yo
 Only `skills/prompt-maid` is the skill itself. The manifests are what make the one-line installs work, and the rest is for reading and contributing.
 
 Found a prompt it handled badly, or a platform whose install steps have changed? [Open an issue](https://github.com/brandonl-ee/prompt-maid/issues/new/choose) with the prompt (or the page) and what you expected. Changes are welcome too: see [CONTRIBUTING.md](.github/CONTRIBUTING.md). For a security problem, use the private route in [SECURITY.md](.github/SECURITY.md) instead of a public issue.
+
+## Versions
+
+Release notes are in [CHANGELOG.md](CHANGELOG.md), and tagged releases are on the [releases page](https://github.com/brandonl-ee/prompt-maid/releases). Installs follow the latest commit, so you get fixes without waiting for a release; to stay on one version, pin a tag, for example `gh skill install brandonl-ee/prompt-maid prompt-maid --pin v1.1.0`.
+
+Source: [github.com/brandonl-ee/prompt-maid](https://github.com/brandonl-ee/prompt-maid).
 
 ## License
 
