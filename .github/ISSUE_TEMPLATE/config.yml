@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Report a security problem privately
-    url: https://github.com/brandonl-ee/prompt-maid/security/advisories/new
+    url: https://github.com/awaitbrandon/prompt-maid/security/advisories/new
     about: For anything that could harm someone using Prompt Maid. Please do not open a public issue.

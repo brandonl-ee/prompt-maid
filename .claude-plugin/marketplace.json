@@ -2,8 +2,8 @@
   "name": "prompt-maid",
   "description": "Prompt Maid: tidies a rough prompt into a clear one before it runs.",
   "owner": {
-    "name": "brandonl-ee",
-    "url": "https://github.com/brandonl-ee"
+    "name": "awaitbrandon",
+    "url": "https://github.com/awaitbrandon"
   },
   "plugins": [
     {

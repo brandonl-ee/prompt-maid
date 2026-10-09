@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting. Please remove anything private from the prompt before pasting it. For a security problem, do not use this form; see the [security policy](https://github.com/brandonl-ee/prompt-maid/security/policy).
+        Thanks for reporting. Please remove anything private from the prompt before pasting it. For a security problem, do not use this form; see the [security policy](https://github.com/awaitbrandon/prompt-maid/security/policy).
   - type: textarea
     id: prompt
     attributes:

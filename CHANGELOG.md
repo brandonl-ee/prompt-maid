@@ -43,6 +43,6 @@ First public release.
 - A CI check that the manifests and the skill's name stay consistent.
 - Community files: contributing guide, code of conduct, security policy, issue forms, pull request template and this changelog.
 
-[Unreleased]: https://github.com/brandonl-ee/prompt-maid/compare/v1.1.0...HEAD
-[1.1.0]: https://github.com/brandonl-ee/prompt-maid/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/brandonl-ee/prompt-maid/releases/tag/v1.0.0
+[Unreleased]: https://github.com/awaitbrandon/prompt-maid/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/awaitbrandon/prompt-maid/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/awaitbrandon/prompt-maid/releases/tag/v1.0.0

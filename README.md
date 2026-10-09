@@ -1,8 +1,8 @@
 # Prompt Maid
 
-[![Check](https://github.com/brandonl-ee/prompt-maid/actions/workflows/check.yml/badge.svg)](https://github.com/brandonl-ee/prompt-maid/actions/workflows/check.yml)
-[![License: MIT](https://img.shields.io/github/license/brandonl-ee/prompt-maid)](LICENSE)
-[![skills.sh](https://skills.sh/b/brandonl-ee/prompt-maid)](https://skills.sh/brandonl-ee/prompt-maid)
+[![Check](https://github.com/awaitbrandon/prompt-maid/actions/workflows/check.yml/badge.svg)](https://github.com/awaitbrandon/prompt-maid/actions/workflows/check.yml)
+[![License: MIT](https://img.shields.io/github/license/awaitbrandon/prompt-maid)](LICENSE)
+[![skills.sh](https://skills.sh/b/awaitbrandon/prompt-maid)](https://skills.sh/awaitbrandon/prompt-maid)
 
 **Tidies your prompts. Saves your tokens.**
 
@@ -44,22 +44,22 @@ It runs no code and calls no services. The skill is one text file of instruction
 The quickest route for most coding agents:
 
 ```bash
-npx skills add brandonl-ee/prompt-maid
+npx skills add awaitbrandon/prompt-maid
 ```
 
 Or pick your row. When it's in, send `maid: help`.
 
 | Where you use AI | Install |
 | --- | --- |
-| **Claude** (claude.ai, desktop and phone apps) | In [Customize > Plugins](https://claude.ai/customize/plugins), choose **Add > Add marketplace** and enter `brandonl-ee/prompt-maid`. [Steps](#claude) |
-| **Claude Code** | `claude plugin marketplace add brandonl-ee/prompt-maid` then `claude plugin install prompt-maid@prompt-maid`. [Details](#claude-code) |
-| **Codex, Cursor, Gemini CLI, Copilot** and 70+ other tools | `npx skills add brandonl-ee/prompt-maid -g`. [Details](#codex-cursor-gemini-cli-copilot-and-other-tools) |
+| **Claude** (claude.ai, desktop and phone apps) | In [Customize > Plugins](https://claude.ai/customize/plugins), choose **Add > Add marketplace** and enter `awaitbrandon/prompt-maid`. [Steps](#claude) |
+| **Claude Code** | `claude plugin marketplace add awaitbrandon/prompt-maid` then `claude plugin install prompt-maid@prompt-maid`. [Details](#claude-code) |
+| **Codex, Cursor, Gemini CLI, Copilot** and 70+ other tools | `npx skills add awaitbrandon/prompt-maid -g`. [Details](#codex-cursor-gemini-cli-copilot-and-other-tools) |
 | **ChatGPT, the Gemini app**, anything without skills | Paste the block from [fallback.md](fallback.md) into custom instructions. [Steps](#chatgpt-the-gemini-app-and-other-ais) |
 
 ### Claude
 
 1. Open [**Customize > Plugins**](https://claude.ai/customize/plugins) in claude.ai or the Claude desktop app.
-2. Choose **Add > Add marketplace**, enter `brandonl-ee/prompt-maid`, and confirm.
+2. Choose **Add > Add marketplace**, enter `awaitbrandon/prompt-maid`, and confirm.
 3. Open **Prompt Maid** in the plugin list and select **Add**.
 
 Nothing to download. The plugin is saved to your account, so it also works in the phone app, in Cowork, and in Claude Code the next time you start it. Updates come from this repository: use **Check for updates**, or turn on **Sync automatically**. Anthropic's guide: [Plugins](https://claude.com/docs/plugins/overview).
@@ -80,14 +80,14 @@ If **Skills** isn't showing, turn on **Code execution and file creation** under 
 Paste both lines into a terminal. You need `git` installed, which Claude Code uses to fetch the plugin.
 
 ```bash
-claude plugin marketplace add brandonl-ee/prompt-maid
+claude plugin marketplace add awaitbrandon/prompt-maid
 claude plugin install prompt-maid@prompt-maid
 ```
 
 Already inside a session? One command does both, on Claude Code 2.1.275 or later:
 
 ```text
-/plugin install prompt-maid --marketplace brandonl-ee/prompt-maid
+/plugin install prompt-maid --marketplace awaitbrandon/prompt-maid
 ```
 
 If you already added Prompt Maid in the Claude app, skip this: it syncs to Claude Code by itself. While idle the plugin adds roughly 150 tokens to a session, and roughly 2,700 when `maid:` is used (estimates; `claude plugin details prompt-maid` shows the figures for your install). Guide: [Install plugins](https://code.claude.com/docs/en/plugins/install).
@@ -99,13 +99,13 @@ For a [profile](#profile), copy the `skills/prompt-maid` folder into `~/.claude/
 One command, using the open-source [`skills`](https://skills.sh) installer. It needs Node.js 22.20 or newer. It finds the AI tools on your machine and asks which to install into; `-g` installs for all your projects.
 
 ```bash
-npx skills add brandonl-ee/prompt-maid -g
+npx skills add awaitbrandon/prompt-maid -g
 ```
 
 No recent Node.js? The GitHub CLI does the same job:
 
 ```bash
-gh skill install brandonl-ee/prompt-maid prompt-maid --scope user
+gh skill install awaitbrandon/prompt-maid prompt-maid --scope user
 ```
 
 <details>
@@ -264,13 +264,13 @@ Your profile is sent to the AI along with your prompts, so leave out anything yo
 
 Only `skills/prompt-maid` is the skill itself. The manifests are what make the one-line installs work, and the rest is for reading and contributing.
 
-Found a prompt it handled badly, or a platform whose install steps have changed? [Open an issue](https://github.com/brandonl-ee/prompt-maid/issues/new/choose) with the prompt (or the page) and what you expected. Changes are welcome too: see [CONTRIBUTING.md](.github/CONTRIBUTING.md). For a security problem, use the private route in [SECURITY.md](.github/SECURITY.md) instead of a public issue.
+Found a prompt it handled badly, or a platform whose install steps have changed? [Open an issue](https://github.com/awaitbrandon/prompt-maid/issues/new/choose) with the prompt (or the page) and what you expected. Changes are welcome too: see [CONTRIBUTING.md](.github/CONTRIBUTING.md). For a security problem, use the private route in [SECURITY.md](.github/SECURITY.md) instead of a public issue.
 
 ## Versions
 
-Release notes are in [CHANGELOG.md](CHANGELOG.md), and tagged releases are on the [releases page](https://github.com/brandonl-ee/prompt-maid/releases). Installs follow the latest commit, so you get fixes without waiting for a release; to stay on one version, pin a tag, for example `gh skill install brandonl-ee/prompt-maid prompt-maid --pin v1.1.0`.
+Release notes are in [CHANGELOG.md](CHANGELOG.md), and tagged releases are on the [releases page](https://github.com/awaitbrandon/prompt-maid/releases). Installs follow the latest commit, so you get fixes without waiting for a release; to stay on one version, pin a tag, for example `gh skill install awaitbrandon/prompt-maid prompt-maid --pin v1.1.0`.
 
-Source: [github.com/brandonl-ee/prompt-maid](https://github.com/brandonl-ee/prompt-maid).
+Source: [github.com/awaitbrandon/prompt-maid](https://github.com/awaitbrandon/prompt-maid).
 
 ## License
 

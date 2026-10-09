@@ -3,11 +3,11 @@
   "displayName": "Prompt Maid",
   "description": "Tidies your prompts. Saves your tokens. Start a message with maid: to turn a rough request into a clear one before it runs, or maid: enhance: for a detailed, agent-ready prompt.",
   "author": {
-    "name": "brandonl-ee",
-    "url": "https://github.com/brandonl-ee"
+    "name": "awaitbrandon",
+    "url": "https://github.com/awaitbrandon"
   },
-  "homepage": "https://github.com/brandonl-ee/prompt-maid",
-  "repository": "https://github.com/brandonl-ee/prompt-maid",
+  "homepage": "https://github.com/awaitbrandon/prompt-maid",
+  "repository": "https://github.com/awaitbrandon/prompt-maid",
   "license": "MIT",
   "keywords": [
     "prompt",

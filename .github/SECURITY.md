@@ -12,11 +12,11 @@ Prompt Maid is a set of text instructions. It runs no code and calls no services
 - A way to make auto mode run something outside the chat (change files, send a message) without first showing the tidied prompt.
 - A command, manifest or workflow in this repository that could harm someone who follows the install steps, for example one that fetches from the wrong place.
 
-A prompt that was tidied badly or lost its meaning is an ordinary bug: please open a [public issue](https://github.com/brandonl-ee/prompt-maid/issues/new/choose) for that.
+A prompt that was tidied badly or lost its meaning is an ordinary bug: please open a [public issue](https://github.com/awaitbrandon/prompt-maid/issues/new/choose) for that.
 
 ## How to report
 
-Use GitHub's private reporting: open the **Security** tab of this repository and choose **Report a vulnerability**, or go straight to the [private reporting form](https://github.com/brandonl-ee/prompt-maid/security/advisories/new). Please do not open a public issue for a security problem.
+Use GitHub's private reporting: open the **Security** tab of this repository and choose **Report a vulnerability**, or go straight to the [private reporting form](https://github.com/awaitbrandon/prompt-maid/security/advisories/new). Please do not open a public issue for a security problem.
 
 Include the prompt or text that triggered it, the tool and model you used, what happened, and what you expected.
 
